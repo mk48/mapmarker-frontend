@@ -6,7 +6,7 @@ import OpenStreetMap from "./OpenStreetMap";
 
 export default function Map() {
   return (
-    <div data-testid="map" style={{width: '100%', height: '100%'}}>
+    <div data-testid="map">
       <OpenStreetMap />
     </div>
   );
