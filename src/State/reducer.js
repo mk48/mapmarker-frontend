@@ -1,7 +1,11 @@
+import { NEW_ADDRESS_CHANGE } from "./../State/ActionTypes";
+
 export default function reducer(state, action) {
+  console.log(action);
+
   switch (action.type) {
-    case "SHOW_ALL":
-      return "ALL";
+    case NEW_ADDRESS_CHANGE:
+      return { ...state, newInput: { ...state.newInput, address: action.data } };
     case "SHOW_COMPLETE":
       return "COMPLETE";
     case "SHOW_INCOMPLETE":

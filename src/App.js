@@ -4,6 +4,7 @@ import React, { useReducer } from "react";
 import reducer from "./State/reducer";
 import { initialState } from "./State/initialState";
 import DispatchContext from "./State/DispatchContext";
+import StateContext from "./State/StateContext";
 
 // components
 import Map from "./Map";
@@ -17,14 +18,16 @@ function App() {
 
   return (
     <DispatchContext.Provider value={dispatch}>
-      <Grid container spacing={3}>
-        <Grid item xs={6}>
-         <Map /> 
+      <StateContext.Provider value={state}>
+        <Grid container spacing={3}>
+          <Grid item xs={6}>
+            <Map />
+          </Grid>
+          <Grid item xs={6}>
+            <Input />
+          </Grid>
         </Grid>
-        <Grid item xs={6}>
-          <Input Markers={state.markers} />
-        </Grid>
-      </Grid>
+      </StateContext.Provider>
     </DispatchContext.Provider>
   );
 }

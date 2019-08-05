@@ -1,0 +1,1 @@
+export const NEW_ADDRESS_CHANGE = "NEW_ADDRESS_CHANGE";

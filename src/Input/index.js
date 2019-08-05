@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+
+//State
+import StateContext from "./../State/StateContext";
+
+// local component
+import NewInput from "./New";
 
 // Material-UI
 import { makeStyles } from "@material-ui/core/styles";
 import Box from "@material-ui/core/Box";
-import Paper from '@material-ui/core/Paper';
+import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap",
     backgroundColor: theme.palette.background.paper
   },
-  
+
   inputItem: {
     width: 200,
     height: 100,
@@ -20,17 +26,21 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Input({ Markers }) {
+export default function Input() {
+  const state = useContext(StateContext);
   const classes = useStyles();
+
+  const {markers} = state;
 
   return (
     <Box className={classes.root}>
-      {Markers.map(marker => (
+      {markers.map(marker => (
         <Paper key={marker.id} className={classes.inputItem}>
           Latitude : {marker.lat}
           Longitude : {marker.lng}
         </Paper>
       ))}
+      <NewInput />
     </Box>
   );
 }
