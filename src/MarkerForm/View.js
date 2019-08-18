@@ -4,7 +4,6 @@ import React, { useContext } from "react";
 import useStyles from "./Style";
 
 // Material-UI
-import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 
 export default function View({ id, address, lat, lng }) {

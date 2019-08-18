@@ -1,6 +1,10 @@
 //State
 import { initialState, markerState } from "./initialState";
-import { ADDRESS_CHANGE, ADD_NEW_BUTTON_CLICKED } from "./ActionTypes";
+import {
+  ADDRESS_CHANGE,
+  ADD_NEW_BUTTON_CLICKED,
+  ADD_NEW_CANCEL_BUTTON_CLICKED
+} from "./ActionTypes";
 
 export default function reducer(state, action) {
   //console.log(action);
@@ -15,6 +19,23 @@ export default function reducer(state, action) {
         markers: markers,
         markersId: markersId,
         showAddButton: false
+      };
+    }
+
+    case ADD_NEW_CANCEL_BUTTON_CLICKED: {
+      const id = action.data.id;
+
+      // remove marker from marker list
+      const updatedMarkers = state.markers.filter(marker => marker.id != id);
+
+      // remove the marker ID from markerID list
+      const updatedMarkersIds = state.markersId.filter(mid => mid != id);
+
+      return {
+        ...state,
+        showAddButton: true,
+        markers: updatedMarkers,
+        markersId: updatedMarkersIds
       };
     }
 

@@ -8,6 +8,11 @@ export default makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper
   },
 
+  form: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+
   item: {
     width: 200,
     height: 100,
@@ -22,5 +27,13 @@ export default makeStyles(theme => ({
 
   height100: {
     height: "100%"
+  },
+
+  formControl: {
+    margin: theme.spacing(1)
+  },
+
+  button: {
+    margin: theme.spacing(1)
   }
 }));
