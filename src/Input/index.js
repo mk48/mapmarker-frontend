@@ -30,13 +30,14 @@ export default function Input() {
   const state = useContext(StateContext);
   const classes = useStyles();
 
-  const {markers} = state;
+  const { markers } = state;
 
   return (
     <Box className={classes.root}>
       {markers.map(marker => (
         <Paper key={marker.id} className={classes.inputItem}>
-          Latitude : {marker.lat}
+          Address: {marker.address} <br />
+          Latitude : {marker.lat} <br />
           Longitude : {marker.lng}
         </Paper>
       ))}

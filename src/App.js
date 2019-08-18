@@ -21,7 +21,7 @@ function App() {
       <StateContext.Provider value={state}>
         <Grid container spacing={3}>
           <Grid item xs={6}>
-            <Map />
+            {/*<Map /> */}
           </Grid>
           <Grid item xs={6}>
             <Input />
