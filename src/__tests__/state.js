@@ -18,20 +18,23 @@ const state = {
 
 describe("Testing all state related methods", () => {
   it("Clicking add new button update the state", () => {
+    const totalMarkers = state.markers.length;
+
     const action = { type: ADD_NEW_BUTTON_CLICKED };
     const updatedState = reducer(state, action);
 
-    expect(updatedState.isAddMode).toBe(true);
+    expect(updatedState.isAddMode).toBeTruthy();
+    expect(updatedState.markers.length).toBe(totalMarkers + 1);
   });
 
   it("Changing address on textbox should update the state", () => {
     const addressToType = "new add";
     const action = {
       type: ADDRESS_CHANGE,
-      data: { id: 0, text: addressToType }
+      data: { id: 1, text: addressToType }
     };
     const updatedState = reducer(state, action);
 
-    expect(updatedState[0].markers[0].address).toBe(addressToType);
+    expect(updatedState.markers[0].address).toBe(addressToType);
   });
 });

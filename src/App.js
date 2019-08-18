@@ -8,7 +8,7 @@ import StateContext from "./State/StateContext";
 
 // components
 import Map from "./Map";
-import Input from "./Input";
+import List from "./MarkerForm/List";
 
 // Material-UI
 import Grid from "@material-ui/core/Grid";
@@ -24,7 +24,7 @@ function App() {
             {/*<Map /> */}
           </Grid>
           <Grid item xs={6}>
-            <Input />
+            <List />
           </Grid>
         </Grid>
       </StateContext.Provider>
