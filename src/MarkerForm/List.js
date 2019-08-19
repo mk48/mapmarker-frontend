@@ -24,6 +24,7 @@ export default function List() {
         if (marker.mode === "view") {
           return (
             <View
+              key={marker.id}
               id={marker.id}
               address={marker.address}
               lat={marker.lat}
@@ -33,6 +34,7 @@ export default function List() {
         } else {
           return (
             <Form
+              key={marker.id}
               mode={marker.mode}
               id={marker.id}
               address={marker.address}

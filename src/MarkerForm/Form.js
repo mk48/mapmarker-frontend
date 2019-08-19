@@ -5,7 +5,9 @@ import DispatchContext from "./../State/DispatchContext";
 import {
   ADDRESS_CHANGE,
   UPDATE_CANCEL_BUTTON_CLICKED,
-  ADD_NEW_CANCEL_BUTTON_CLICKED
+  ADD_NEW_CANCEL_BUTTON_CLICKED,
+  UPDATE_BUTTON_CLICKED,
+  SAVE_BUTTON_CLICKED
 } from "./../State/ActionTypes";
 
 // Material-UI
@@ -39,6 +41,14 @@ export default function Form({ mode, id, address, lat, lng }) {
     });
   };
 
+  const handleActionButtonClick = () => {
+    const type = mode === "add" ? SAVE_BUTTON_CLICKED : UPDATE_BUTTON_CLICKED;
+    dispatch({
+      type: type,
+      data: { id: id }
+    });
+  };
+
   return (
     <Paper className={classes.inputItem}>
       <form>
@@ -63,6 +73,7 @@ export default function Form({ mode, id, address, lat, lng }) {
             variant="contained"
             color="primary"
             className={classes.button}
+            onClick={handleActionButtonClick}
           >
             {mode === "add" ? "Save" : "Update"}
           </Button>

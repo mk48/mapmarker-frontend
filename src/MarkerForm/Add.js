@@ -17,7 +17,7 @@ export default function View() {
   const dispatch = useContext(DispatchContext);
   const classes = useStyles();
 
-  const addClick = event => {
+  const addClick = () => {
     dispatch({ type: ADD_NEW_BUTTON_CLICKED });
   };
 

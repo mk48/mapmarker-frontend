@@ -14,8 +14,8 @@ export default makeStyles(theme => ({
   },
 
   item: {
-    width: 200,
-    height: 100,
+    width: 250,
+    height: 150,
     padding: theme.spacing(1),
     margin: theme.spacing(0.4)
   },
