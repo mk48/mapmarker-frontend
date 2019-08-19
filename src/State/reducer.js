@@ -1,3 +1,5 @@
+import uuid4 from "uuid";
+
 //State
 import { initialState, markerState } from "./initialState";
 import {
@@ -7,7 +9,8 @@ import {
   UPDATE_CANCEL_BUTTON_CLICKED,
   SAVE_BUTTON_CLICKED,
   UPDATE_BUTTON_CLICKED,
-  EDIT_BUTTON_CLICKED
+  EDIT_BUTTON_CLICKED,
+  DELETE_BUTTON_CLICKED
 } from "./ActionTypes";
 
 export default function reducer(state, action) {
@@ -16,7 +19,7 @@ export default function reducer(state, action) {
   switch (action.type) {
     case ADD_NEW_BUTTON_CLICKED: {
       //============================================= + button
-      const newId = state.markers.length;
+      const newId = uuid4();
       const markers = [
         ...state.markers,
         { ...markerState, id: newId, mode: "add" }
@@ -37,7 +40,7 @@ export default function reducer(state, action) {
 
       const updatedMarkers = state.markers.map((marker, i) => {
         if (marker.id === id) {
-          return { ...marker, mode: "edit" };
+          return { ...marker, mode: "edit", addressEdit: marker.address };
         } else {
           return marker;
         }
@@ -67,6 +70,7 @@ export default function reducer(state, action) {
       };
     }
 
+    case DELETE_BUTTON_CLICKED:
     case ADD_NEW_CANCEL_BUTTON_CLICKED: {
       //============================================= Add new - cancel button
       const id = action.data.id;
@@ -89,7 +93,7 @@ export default function reducer(state, action) {
       const id = action.data.id;
       const updatedMarkers = state.markers.map((marker, i) => {
         if (marker.id === id) {
-          return { ...marker, address: action.data.text };
+          return { ...marker, addressEdit: action.data.text };
         } else {
           return marker;
         }
@@ -101,12 +105,18 @@ export default function reducer(state, action) {
       };
     }
 
+    case UPDATE_BUTTON_CLICKED:
     case SAVE_BUTTON_CLICKED: {
       //============================================= save button
       const id = action.data.id;
       const updatedMarkers = state.markers.map((marker, i) => {
         if (marker.id === id) {
-          return { ...marker, mode: "view", errorMsg: false };
+          return {
+            ...marker,
+            mode: "view",
+            address: marker.addressEdit,
+            errorMsg: false
+          };
         } else {
           return marker;
         }

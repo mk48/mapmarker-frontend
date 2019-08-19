@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 //State
 import { EDIT_BUTTON_CLICKED } from "./../State/ActionTypes";
+import { DELETE_BUTTON_CLICKED } from "./../State/ActionTypes";
 import DispatchContext from "./../State/DispatchContext";
 
 // local component
@@ -27,6 +28,13 @@ export default function View({ id, address, lat, lng }) {
     });
   };
 
+  const handleDeleteButtonClick = () => {
+    dispatch({
+      type: DELETE_BUTTON_CLICKED,
+      data: { id: id }
+    });
+  };
+
   return (
     <Card className={classes.item}>
       <CardContent>
@@ -41,7 +49,7 @@ export default function View({ id, address, lat, lng }) {
         <IconButton aria-label="edit" onClick={handleEditButtonClick}>
           <EditIcon />
         </IconButton>
-        <IconButton aria-label="delete">
+        <IconButton aria-label="delete" onClick={handleDeleteButtonClick}>
           <DeleteIcon />
         </IconButton>
       </CardActions>

@@ -32,7 +32,7 @@ export default function View() {
           className={classes.height100}
         >
           <Grid item>
-            <AddIcon style={{ fontSize: 30 }} onClick={addClick} />
+            <AddIcon style={{ fontSize: 48 }} onClick={addClick} />
           </Grid>
         </Grid>
       </Paper>

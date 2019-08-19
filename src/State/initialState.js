@@ -1,6 +1,7 @@
 export const markerState = {
   id: 0,
   address: "",
+  addressEdit: "",
   lat: "",
   lng: "",
   mode: "view",
@@ -10,8 +11,8 @@ export const markerState = {
 
 export const initialState = {
   showAddButton: true,
-  markersId: [0],
-  markers: [
-    { ...markerState, id: 0, address: "test", lat: 2.36547, lng: 8.25479 }
-  ]
+  markersId: [],
+  markers: []
 };
+
+//{ ...markerState, id: 0, address: "test", lat: 2.36547, lng: 8.25479 }

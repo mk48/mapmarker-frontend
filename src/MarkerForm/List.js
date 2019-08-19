@@ -19,7 +19,7 @@ export default function List() {
   const { showAddButton, markers } = state;
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} data-testid="list">
       {markers.map((marker, i) => {
         if (marker.mode === "view") {
           return (
@@ -37,7 +37,7 @@ export default function List() {
               key={marker.id}
               mode={marker.mode}
               id={marker.id}
-              address={marker.address}
+              address={marker.addressEdit}
               lat={marker.lat}
               lng={marker.lng}
             />
