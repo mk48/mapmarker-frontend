@@ -2,6 +2,7 @@ import React, { useReducer } from "react";
 
 // State
 import reducer from "./State/reducer";
+import reducerMiddleware from "./State/reducerMiddleware";
 import { initialState } from "./State/initialState";
 import DispatchContext from "./State/DispatchContext";
 import StateContext from "./State/StateContext";
@@ -14,7 +15,8 @@ import List from "./MarkerForm/List";
 import Grid from "@material-ui/core/Grid";
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatchBase] = useReducer(reducer, initialState);
+  const dispatch = reducerMiddleware(dispatchBase); // reducer middleware to handle API requests
 
   return (
     <DispatchContext.Provider value={dispatch}>

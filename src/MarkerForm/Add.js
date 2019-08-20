@@ -12,6 +12,7 @@ import Box from "@material-ui/core/Box";
 import Paper from "@material-ui/core/Paper";
 import AddIcon from "@material-ui/icons/Add";
 import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
 
 export default function View() {
   const dispatch = useContext(DispatchContext);
@@ -24,15 +25,11 @@ export default function View() {
   return (
     <Box>
       <Paper className={classes.item}>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-          className={classes.height100}
-        >
+        <Grid container direction="row" justify="center" alignItems="center" className={classes.height100}>
           <Grid item>
-            <AddIcon style={{ fontSize: 48 }} onClick={addClick} />
+            <IconButton aria-label="delete" onClick={addClick}>
+              <AddIcon style={{ fontSize: 48 }} />
+            </IconButton>
           </Grid>
         </Grid>
       </Paper>

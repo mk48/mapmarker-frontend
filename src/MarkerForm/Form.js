@@ -21,6 +21,7 @@ import useStyles from "./Style";
 
 export default function Form({ mode, id, address, lat, lng }) {
   const dispatch = useContext(DispatchContext);
+
   const classes = useStyles();
 
   const handleAddressChange = event => {
@@ -31,10 +32,7 @@ export default function Form({ mode, id, address, lat, lng }) {
   };
 
   const handleCancelButtonClick = () => {
-    const type =
-      mode === "add"
-        ? ADD_NEW_CANCEL_BUTTON_CLICKED
-        : UPDATE_CANCEL_BUTTON_CLICKED;
+    const type = mode === "add" ? ADD_NEW_CANCEL_BUTTON_CLICKED : UPDATE_CANCEL_BUTTON_CLICKED;
     dispatch({
       type: type,
       data: { id: id }
@@ -45,7 +43,7 @@ export default function Form({ mode, id, address, lat, lng }) {
     const type = mode === "add" ? SAVE_BUTTON_CLICKED : UPDATE_BUTTON_CLICKED;
     dispatch({
       type: type,
-      data: { id: id }
+      data: { id: id, address: address }
     });
   };
 
@@ -62,19 +60,10 @@ export default function Form({ mode, id, address, lat, lng }) {
             margin="normal"
             variant="outlined"
           />
-          <Button
-            variant="contained"
-            className={classes.button}
-            onClick={handleCancelButtonClick}
-          >
+          <Button variant="contained" className={classes.button} onClick={handleCancelButtonClick}>
             Cancel
           </Button>
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            onClick={handleActionButtonClick}
-          >
+          <Button variant="contained" color="primary" className={classes.button} onClick={handleActionButtonClick}>
             {mode === "add" ? "Save" : "Update"}
           </Button>
         </FormControl>
