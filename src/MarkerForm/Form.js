@@ -15,11 +15,12 @@ import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 
 // local
 import useStyles from "./Style";
 
-export default function Form({ mode, id, address, lat, lng }) {
+export default function Form({ mode, id, address, lat, lng, errorMessage }) {
   const dispatch = useContext(DispatchContext);
 
   const classes = useStyles();
@@ -60,6 +61,11 @@ export default function Form({ mode, id, address, lat, lng }) {
             margin="normal"
             variant="outlined"
           />
+          {errorMessage && (
+            <Typography variant="body2" component="p" className={classes.errorMessage}>
+              {errorMessage}
+            </Typography>
+          )}
           <Button variant="contained" className={classes.button} onClick={handleCancelButtonClick}>
             Cancel
           </Button>

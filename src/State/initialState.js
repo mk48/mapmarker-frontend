@@ -6,7 +6,7 @@ export const markerState = {
   lng: "",
   mode: "view",
   processing: false,
-  errorMsg: false
+  errorMessage: false
 };
 
 export const initialState = {

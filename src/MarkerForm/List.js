@@ -22,15 +22,7 @@ export default function List() {
     <Box className={classes.root} data-testid="list">
       {markers.map((marker, i) => {
         if (marker.mode === "view") {
-          return (
-            <View
-              key={marker.id}
-              id={marker.id}
-              address={marker.address}
-              lat={marker.lat}
-              lng={marker.lng}
-            />
-          );
+          return <View key={marker.id} id={marker.id} address={marker.address} lat={marker.lat} lng={marker.lng} />;
         } else {
           return (
             <Form
@@ -40,6 +32,7 @@ export default function List() {
               address={marker.addressEdit}
               lat={marker.lat}
               lng={marker.lng}
+              errorMessage={marker.errorMessage}
             />
           );
         }

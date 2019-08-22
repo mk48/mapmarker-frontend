@@ -1,5 +1,6 @@
 // Material-UI
 import { makeStyles } from "@material-ui/core/styles";
+import { red } from "@material-ui/core/colors";
 
 export default makeStyles(theme => ({
   root: {
@@ -31,6 +32,10 @@ export default makeStyles(theme => ({
 
   formControl: {
     margin: theme.spacing(1)
+  },
+
+  errorMessage: {
+    color: red[500]
   },
 
   button: {
